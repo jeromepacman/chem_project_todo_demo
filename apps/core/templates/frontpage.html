@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome | {% endblock %}
+
+{% block content %}
+
+    {% with products as list_products %}
+        {% include 'parts/product_list.html' %}
+    {% endwith %}
+
+    <hr>
+
+    <div class="featured-categories">
+        {% for category in featured_categories %}
+            <h2 class="subtitle has-text-centered">{{ category.title }}</h2>
+
+            {% with category.products.all|slice:":4" as list_products %}
+                {% include 'parts/product_list.html' %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+     <div class="is-flex">
+        <h2 class="subtitle has-text-centered">Popular products</h2>
+
+    {% with popular_products as list_products %}
+        {% include 'parts/product_list.html' %}
+    {% endwith %}
+     </div>
+    <div class="block">
+    </div>
+    <div class="is-flex ">
+        <h2  class="subtitle has-text-centered">Recently viewed</h2>
+
+    {% with recently_viewed_products as list_products %}
+        {% include 'parts/product_list.html' %}
+    {% endwith %}
+
+    </div>
+{% endblock %}
