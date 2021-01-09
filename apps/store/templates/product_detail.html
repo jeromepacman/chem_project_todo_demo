@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}{{ product.title }} | {% endblock %}
 
@@ -37,13 +38,16 @@
         <div class="columns">
             <div class="column is-4 is-offset-4">
                 <h1 class="title">{{ product.title }}</h1>
-                <h2 class="subtitle">${{ product.price }}</h2><br>
-                <h2>Stars: {% if product.get_rating == 0 %}No ratings yet{% else %}{{ product.get_rating|floatformat:1 }}{% endif %}</h2>
 
+                <h2 class="subtitle">${{ product.price }}</h2>
                 {% if product.description %}
-                 <p>{{ product.description }}</p>
+                    {{ product.description }}
                 {% endif %}
-                <br><br>
+                {{product.quantity}} {{product.unit}}
+                <hr>
+                <h2>Note: {% if product.get_rating == 0 %}No ratings yet{% else %}{{ product.get_rating|floatformat:1 }}{% endif %}</h2>
+
+                <br>
 
                  {% if product.variants.all %}
                     <div class="columns">
@@ -71,7 +75,7 @@
                                                 <p>Already in cart!</p>
                                             {% else %}
                                                 {% if product.num_available > 0 %}
-                                                    <button @click="addToCart({{ product.id }})" class="button is-success">Add to cart</button>
+                                                    <button @click="addToCart({{ product.id }})" class="button is-success s-medium is-fullwidth">Add to cart</button>
                                                 {% else %}
                                                     <p>The product is out of stock!</p>
                                                 {% endif %}
@@ -101,7 +105,7 @@
                                                     <p>Already in cart!</p>
                                                 {% else %}
                                                     {% if variant.num_available > 0 %}
-                                                        <button @click="addToCart({{ variant.id }})" class="button is-success">Add to cart</button>
+                                                        <button @click="addToCart({{ variant.id }})" class="button is-success s-medium is-fullwidth">Add to cart</button>
                                                     {% else %}
                                                         <p>The product is out of stock!</p>
                                                     {% endif %}
@@ -118,7 +122,7 @@
                         <p>Already in cart!</p>
                     {% else %}
                         {% if product.num_available > 0 %}
-                            <button @click="addToCart({{ product.id }})" class="button is-success">Add to cart</button>
+                            <button @click="addToCart({{ product.id }})" class="button is-success s-medium is-fullwidth">Add to cart</button>
                         {% else %}
                             <p>The product is out of stock!</p>
                         {% endif %}
@@ -133,27 +137,22 @@
             </div>
         </article>
 
-        <hr>
-        <br><br><br><br><br>
+        <hr><br>
+        <hr><br>
         <h2 class="subtitle">Related products</h2>
-
-
         {% with related_products as list_products %}
             {% include 'parts/product_list.html' %}
         {% endwith %}
-
         <hr>
-
         <h2 class="subtitle">Reviews</h2>
-
         <div class="reviews-wrapper">
             {% for review in product.reviews.all %}
                 <div class="notification space-below">
                     <p>
                         <strong>Date: </strong>{{ review.date_added|date:"Y-m-d" }},
                         <strong>Note: </strong>{{ review.stars }}
+                        by {{
                     </p>
-
                     {{ review.content }}
                 </div>
             {% empty %}
@@ -199,7 +198,7 @@
                     </div>
                 </form>
             {% else %}
-                <p>Sign in to add review!</p>
+                <p>Sign in to add a review</p>
             {% endif %}
         </div>
     </div>

@@ -44,11 +44,11 @@
                         	<a href="{% url 'category_detail' category.slug %}" class="navbar-item">{{ category.title }}</a>
 						{% else %}
 							<div class="navbar-item has-dropdown is-hoverable">
-								<a href="{% url 'category_detail' category.slug %}" class="navbar-link">{{ category.title }}</a>
+								<a href="{% url 'category_detail' category.slug %}" class="navbar-link ">{{ category.title }}</a>
 
 								<div class="navbar-dropdown">
 									{% for subcategory in category.children.all %}
-										<a href="{% url 'category_detail' subcategory.slug %}" class="navbar-item">{{ subcategory.title }}</a>
+									<a href="{% url 'category_detail' subcategory.slug %}" class="navbar-item has-background-white-ter"><strong>{{ subcategory.title }}</strong></a>
 									{% endfor %}
 								</div>
 							</div>

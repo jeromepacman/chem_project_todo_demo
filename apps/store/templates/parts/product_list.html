@@ -12,13 +12,14 @@
                     <div class="media">
                         <div class="media-content">
                             <p class="title is-4">{{ p.title }}</p>
-                            <p class="subtitle is-6">€{{ p.price }}</p>
+                            <p class="subtitle is-6">{{p.quantity}} {{p.unit}}</p>
+                            <p class="subtitle is-5">€{{ p.price }}</p>
                         </div>
                     </div>
                 </div>
 
                 <footer class="card-footer">
-                   <button class="button is-warning">
+                   <button class="button is-warning is focused">
                         <a href="{% url 'product_detail' p.category.slug p.slug %}" class="button-is-primary">View</a>
                    </button>
                 </footer>

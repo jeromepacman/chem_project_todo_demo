@@ -12,7 +12,7 @@ class Order(models.Model):
 
     STATUS_CHOICES=[
         (ORDERED, 'Pending'),
-        (PROCESS, 'in process'),
+        (PROCESS, 'In process'),
         (SHIPPED, 'Shipped'),
         (CANCELLED, 'Cancelled')
     ]
