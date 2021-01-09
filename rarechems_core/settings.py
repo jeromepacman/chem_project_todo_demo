@@ -73,7 +73,7 @@ MIDDLEWARE = [
 
 ]
 
-ROOT_URLCONF = 'saulgadgets.urls'
+ROOT_URLCONF = 'rarechems_core.urls'
 
 TEMPLATES = [
     {
@@ -93,7 +93,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'saulgadgets.wsgi.application'
+WSGI_APPLICATION = 'rarechems_core.wsgi.application'
 
 
 # Database
