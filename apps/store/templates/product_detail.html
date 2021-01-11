@@ -151,7 +151,7 @@
                     <p>
                         <strong>Date: </strong>{{ review.date_added|date:"Y-m-d" }},
                         <strong>Note: </strong>{{ review.stars }}
-                        by {{
+                        by {{ request.user.username.self }}
                     </p>
                     {{ review.content }}
                 </div>

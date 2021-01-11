@@ -1,17 +1,33 @@
+
 <div class="newsletter-wrapper" id="newsletter-wrapper">
-    <h2 class="subtitle">Subscribe to our newsletter</h2>
-
-    <form v-on:submit.prevent="onSubmit">
-        <div class="field has-addons">
-            <div class="control">
-                <input type="email" v-model="email" name="email" class="input" placeholder="Your e-mail address...">
-            </div>
-            <div class="control">
-                <button class="button is-success">Submit</button>
-            </div>
+    <div class="columns">
+        <div class="column">
+            <h2 class="subtitle">Search for a product</h2>
+                <form method="get" action="{% url 'search' %}">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input type="text" class="input" placeholder="Search..." name="query">
+                        </div>
+                        <div class="control">
+                            <button class="button is-success">Search</button>
+                        </div>
+                    </div>
+                </form>
         </div>
-    </form>
-
+        <div class="column">
+            <h2 class="subtitle">Subscribe to our newsletter</h2>
+                <form v-on:submit.prevent="onSubmit">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input type="email" v-model="email" name="email" class="input" placeholder="Your e-mail address...">
+                        </div>
+                        <div class="control">
+                            <button class="button is-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
     <div class="notification is-success" v-if="showSuccess">
         The e-mail address was saved!
     </div>
