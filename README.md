@@ -1,1 +1,1 @@
-rarechemsdemo.herokuapp.com
+https://rarechemsdemo.herokuapp.com
