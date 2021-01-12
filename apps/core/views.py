@@ -17,23 +17,3 @@ def frontpage(request):
     }
 
     return render(request, 'frontpage.html', context)
-
-
-def contact(request):
-    return render(request, 'contact.html')
-
-
-def about(request):
-    return render(request, 'about.html')
-
-
-def terms(request):
-    return render(request, 'terms.html')
-
-
-def payment(request):
-    return render(request, 'payment.html')
-
-
-def shipping(request):
-    return render(request, 'shipping.html')
