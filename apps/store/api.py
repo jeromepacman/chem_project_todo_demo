@@ -80,7 +80,7 @@ def create_checkout_session(request):
 
         obj = {
             'price_data': {
-                'currency': 'usd',
+                'currency': 'eur',
                 'product_data': {
                     'name': product.title
                 },
@@ -110,7 +110,7 @@ def create_checkout_session(request):
     #
     # Create order
 
-    orderid = checkout(request, data['first_name'], data['last_name'], data['email'], data['address'], data['zipcode'], data['place'], data['phone'])
+    orderid = checkout(request, data['first_name'], data['last_name'], data['email'], data['address'], data['zipcode'], data['place'], data['country'], data['phone'])
 
     total_price = 0.00
 

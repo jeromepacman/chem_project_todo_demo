@@ -7,6 +7,7 @@ class Userprofile(models.Model):
     address=models.CharField(max_length=255, blank=True, null=True)
     zipcode=models.CharField(max_length=255, blank=True, null=True)
     place=models.CharField(max_length=255, blank=True, null=True)
+    country=models.CharField(max_length=255, blank=True, null=True)
     phone=models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):

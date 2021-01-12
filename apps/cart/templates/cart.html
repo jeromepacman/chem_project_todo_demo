@@ -172,7 +172,7 @@
                         <button class="button is-info" v-on:click="buy('stripe')">Pay with Stripe</button>
                         <button class="button is-primary" v-on:click="buy('razorpay')">Pay with Razorpay</button>
 
-                        <div id="paypal-button-container" class="mt-4"></div>
+                       <!-- <div id="paypal-button-container" class="mt-4"></div> -->
                     </div>
                 </div>
             </div>
@@ -216,6 +216,7 @@
                 address: '{{ address }}',
                 zipcode: '{{ zipcode }}',
                 place: '{{ place }}',
+                country: '{{ country }}',
                 phone: '{{ phone }}',
                 products: [{{ productsstring|safe }}],
                 coupon_value: 0,
@@ -249,6 +250,7 @@
                         'address': this.address,
                         'zipcode': this.zipcode,
                         'place': this.place,
+                        'country': this.country,
                         'phone': this.phone,
                         'coupon_code': this.coupon_code,
                         'gateway': 'paypal',
@@ -321,6 +323,10 @@
                     this.errors.push('Place is empty');
                 }
 
+                if (this.country === '') {
+                    this.errors.push('Country is empty');
+                }
+
                 if (this.phone === '') {
                     this.errors.push('Phone is empty');
                 }
@@ -356,6 +362,7 @@
                     'address': this.address,
                     'zipcode': this.zipcode,
                     'place': this.place,
+                    'country': this.country,
                     'phone': this.phone,
                     'coupon_code': this.coupon_code,
                     'gateway': gateway
