@@ -21,6 +21,8 @@ from .sitemaps import StaticViewSitemap, CategorySitemap, ProductSitemap
 
 sitemaps = {'static': StaticViewSitemap, 'product': ProductSitemap, 'category': CategorySitemap}
 
+admin.site.site_header = 'RareChems'
+
 urlpatterns = [
     path('', frontpage, name='frontpage'),
     path('search/', search, name='search'),
@@ -53,3 +55,5 @@ urlpatterns = [
     path('<slug:category_slug>/<slug:slug>/', product_detail, name='product_detail'),
     path('<slug:slug>/', category_detail, name='category_detail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = 'RareChems'

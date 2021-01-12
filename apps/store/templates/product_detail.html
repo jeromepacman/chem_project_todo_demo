@@ -151,7 +151,7 @@
                     <p>
                         <strong>Date: </strong>{{ review.date_added|date:"Y-m-d" }},
                         <strong>Note: </strong>{{ review.stars }}
-                        by {{ request.user.username.self }}
+                        by {{ user.username }}
                     </p>
                     {{ review.content }}
                 </div>
@@ -198,7 +198,7 @@
                     </div>
                 </form>
             {% else %}
-                <p>Sign in to add a review</p>
+                <p>(you can't add a review yet)</p>
             {% endif %}
         </div>
     </div>
