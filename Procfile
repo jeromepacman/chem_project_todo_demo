@@ -1,0 +1,1 @@
+web: gunicorn rarechems_core.wsgi --log-file -
