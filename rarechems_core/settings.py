@@ -1,12 +1,3 @@
-STRIPE_API_KEY_PUBLISHABLE="pk_test_51HIHiuKBJV2qfWbD2gQe6aqanfw6Eyul5P02KeOuSR1UMuaV4TxEtaQyzr9DbLITSZweL7XjK3p74swcGYrE2qEX00Hz7GmhMI"
-STRIPE_API_KEY_HIDDEN="sk_test_51HIHiuKBJV2qfWbD4I9pAODack7r7r9LJOY65zSFx7jUUwgy2nfKEgQGvorv1p2xP7tgMsJ5N9EW7K1lBdPnFnyK00kdrS27cj"
-
-RAZORPAY_API_KEY_PUBLISHABLE="rzp_test_Wj7ujrjP6ULkuq"
-RAZORPAY_API_KEY_HIDDEN="WT8djoNtYSAzA28BrhryFL0f"
-
-PAYPAL_API_KEY_PUBLISHABLE="Ab5gaq5YlFHQTAgbcIW79GV4wE7ObsefiPyNMNV87z1-2JzdNhHpOfGKIduOM1qItLgLI3eA2Z3PIHLw"
-PAYPAL_API_KEY_HIDDEN="aEKFH985N2oOIFWOeS7rdq2Nht6CdztTVDDjDuQCMIBKcAbjyL-Z3ZY9DeznZSaFbQTp1H4o7CrxgwjX4x"
-
 import os
 
 from pathlib import Path
@@ -49,6 +40,7 @@ INSTALLED_APPS=[
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    'django.contrib.staticfiles',
     'django.contrib.flatpages',
     'django.contrib.sitemaps',
     'cloudinary_storage',
@@ -151,3 +143,12 @@ MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media/')
 
 STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STRIPE_API_KEY_PUBLISHABLE="pk_test_51HIHiuKBJV2qfWbD2gQe6aqanfw6Eyul5P02KeOuSR1UMuaV4TxEtaQyzr9DbLITSZweL7XjK3p74swcGYrE2qEX00Hz7GmhMI"
+STRIPE_API_KEY_HIDDEN="sk_test_51HIHiuKBJV2qfWbD4I9pAODack7r7r9LJOY65zSFx7jUUwgy2nfKEgQGvorv1p2xP7tgMsJ5N9EW7K1lBdPnFnyK00kdrS27cj"
+
+RAZORPAY_API_KEY_PUBLISHABLE="rzp_test_Wj7ujrjP6ULkuq"
+RAZORPAY_API_KEY_HIDDEN="WT8djoNtYSAzA28BrhryFL0f"
+
+PAYPAL_API_KEY_PUBLISHABLE="Ab5gaq5YlFHQTAgbcIW79GV4wE7ObsefiPyNMNV87z1-2JzdNhHpOfGKIduOM1qItLgLI3eA2Z3PIHLw"
+PAYPAL_API_KEY_HIDDEN="aEKFH985N2oOIFWOeS7rdq2Nht6CdztTVDDjDuQCMIBKcAbjyL-Z3ZY9DeznZSaFbQTp1H4o7CrxgwjX4x"
