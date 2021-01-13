@@ -3,29 +3,33 @@ from django.shortcuts import render, redirect
 
 from .cart import Cart
 
+
 def cart_detail(request):
-    cart = Cart(request)
-    productsstring = ''
+    cart=Cart(request)
+    productsstring=''
 
     for item in cart:
-        product = item['product']
-        url = '/%s/%s/' % (product.category.slug, product.slug)
-        b = "{'id': '%s', 'title': '%s', 'price': '%s', 'quantity': '%s', 'total_price': '%s', 'thumbnail': '%s', 'url': '%s', 'num_available': '%s'}," % (product.id, product.title, product.price, item['quantity'], item['total_price'], product.get_thumbnail, url, product.num_available)
+        product=item['product']
+        url='/%s/%s/' % (product.category.slug, product.slug)
+        b="{'id': '%s', 'title': '%s', 'price': '%s', 'quantity': '%s', 'total_price': '%s', 'thumbnail': '%s', 'url': '%s', 'num_available': '%s'}," % (
+        product.id, product.title, product.price, item['quantity'], item['total_price'], product.get_thumbnail, url,
+        product.num_available)
 
-        productsstring = productsstring + b
+        productsstring=productsstring + b
 
     if request.user.is_authenticated:
-        first_name = request.user.first_name
-        last_name = request.user.last_name
-        email = request.user.email
-        address = request.user.userprofile.address
-        zipcode = request.user.userprofile.zipcode
-        place = request.user.userprofile.place
-        phone = request.user.userprofile.phone
+        first_name=request.user.first_name
+        last_name=request.user.last_name
+        email=request.user.email
+        address=request.user.userprofile.address
+        zipcode=request.user.userprofile.zipcode
+        place=request.user.userprofile.place
+        country=request.user.userprofile.country
+        phone=request.user.userprofile.phone
     else:
-        first_name = last_name = email = address = zipcode = place = phone = ''
+        first_name=last_name=email=address=zipcode=place=country=phone=''
 
-    context = {
+    context={
         'cart': cart,
         'first_name': first_name,
         'last_name': last_name,
@@ -34,6 +38,7 @@ def cart_detail(request):
         'address': address,
         'zipcode': zipcode,
         'place': place,
+        'country': country,
         'pub_key': settings.STRIPE_API_KEY_PUBLISHABLE,
         'pub_key_razorpay': settings.RAZORPAY_API_KEY_PUBLISHABLE,
         'pub_key_paypal': settings.PAYPAL_API_KEY_PUBLISHABLE,
@@ -42,8 +47,9 @@ def cart_detail(request):
 
     return render(request, 'cart.html', context)
 
+
 def success(request):
-    cart = Cart(request)
+    cart=Cart(request)
     cart.clear()
-    
+
     return render(request, 'success.html')

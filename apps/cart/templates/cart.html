@@ -41,7 +41,7 @@
                                 @click="incrementQuantity(product.id, product.quantity, product.price)">+
                         </button>
                     </td>
-                    <td>[[ product.total_price ]]</td>
+                    <td>[[ product.total_price ]] €</td>
                     <td>
                         <button @click="removeFromCart(product.id)" class="button is-danger">Remove</button>
                     </td>
@@ -58,7 +58,8 @@
                 </tr>
 
                 <tr v-if="coupon_value">
-                    <td colspan="3">Total cost with coupon:</td>
+                    <td colspan="1">(Discount: [[ discountAmount ]] €)</td>
+                    <td colspan="2">Total cost with coupon:</td>
                     <th>[[ totalCostWithCoupon ]] €</th>
                 </tr>
                 </tfoot>
@@ -164,15 +165,15 @@
                 </div>
             </div>
         </div>
-        <div class="columns has-text-weight-semibold">
-            <div class="column is-4 is-offset-4">
+        <div class="columns has-text-weight-bold">
+            <div class="column is-offset-4">
                 <div class="field">
                     <div class="control">
                         <button class="button is-warning">Pay with Bitcoin</button>
                         <button class="button is-info" v-on:click="buy('stripe')">Pay with Stripe</button>
                         <button class="button is-primary" v-on:click="buy('razorpay')">Pay with Razorpay</button>
 
-                       <!-- <div id="paypal-button-container" class="mt-4"></div> -->
+                       <!--<div id="paypal-button-container" class="mt-4"></div> -->
                     </div>
                 </div>
             </div>
@@ -287,9 +288,14 @@
             totalCost: function() {
                 return store.state.totalCost
             },
-            totalCostWithCoupon: function() {
+            discountAmount: function() {
                 if (this.coupon_value > 0) {
                     return store.state.totalCost * (parseInt(this.coupon_value) / 100);
+                }
+            },
+            totalCostWithCoupon: function() {
+                if (this.coupon_value > 0) {
+                    return store.state.totalCost - (store.state.totalCost * (parseInt(this.coupon_value) / 100));
                 } else {
                     return store.state.totalCost;
                 }

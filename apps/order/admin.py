@@ -23,6 +23,17 @@ def order_pdf(obj):
 order_name.short_description='PDF'
 
 
+def admin_order_process(modeladmin, request, queryset):
+    for order in queryset:
+        order.status=Order.PROCESS
+        order.save()
+
+    return
+
+
+admin_order_process.short_description='Set In process'
+
+
 def admin_order_shipped(modeladmin, request, queryset):
     for order in queryset:
         order.shipped_date=datetime.datetime.now()
@@ -48,7 +59,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_filter=['created_at', 'status']
     search_fields=['first_name', 'address']
     inlines=[OrderItemInline]
-    actions=[admin_order_shipped]
+    actions=['admin_order_shipped', 'admin_order_process']
 
 
 admin.site.register(Order, OrderAdmin)

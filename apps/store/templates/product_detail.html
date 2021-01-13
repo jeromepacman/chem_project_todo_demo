@@ -132,13 +132,13 @@
         </div>
 
         <article class="message is-success" v-if="showMessage">
-            <div class="message-body">
+            <div class="message-header">
                 The product was added to the cart!
             </div>
         </article>
 
         <hr><br>
-        <hr><br>
+
         <h2 class="subtitle">Related products</h2>
         {% with related_products as list_products %}
             {% include 'parts/product_list.html' %}

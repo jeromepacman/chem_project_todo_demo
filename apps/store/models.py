@@ -126,3 +126,4 @@ class ProductReview(models.Model):
     stars=models.IntegerField()
 
     date_added=models.DateTimeField(auto_now_add=True)
+

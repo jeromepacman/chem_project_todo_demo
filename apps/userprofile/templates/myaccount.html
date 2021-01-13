@@ -14,7 +14,7 @@
     <p><strong>E-mail: </strong>{{ request.user.email }}</p>
     <p><strong>Address: </strong>{{ request.user.userprofile.address }}</p>
     <p>{{ request.user.userprofile.zipcode }} {{ request.user.userprofile.place }}</p>
-     <p>{{ request.user.userprofile.country }} {{ request.user.userprofile.country }}</p>
+    <p><strong>Country: </strong>{{ request.user.userprofile.country }}</p>
     <p><strong>Phone: </strong>{{ request.user.userprofile.phone }}</p>
 
     <hr>
@@ -22,10 +22,10 @@
     <h2 class="subtitle">My orders</h2>
 
     {% for order in request.user.orders.all %}
-        <article class="message is-light">
+        <article class="message is-grey">
             <div class="message-header">
                 <p>{{ order.created_at }}</p>
-                <p><strong>Status: </strong>{{ order.status }}</p>
+                <p class="has-text-success"><strong>Status: </strong>{{ order.status }}</p>
             </div>
 
             <div class="message-body">

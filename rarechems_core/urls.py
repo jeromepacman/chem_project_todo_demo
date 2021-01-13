@@ -56,4 +56,3 @@ urlpatterns = [
     path('<slug:slug>/', category_detail, name='category_detail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = 'RareChems'
