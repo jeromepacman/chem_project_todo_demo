@@ -19,7 +19,7 @@
         <div class="columns is-multiline">
             {% for subcategory in category.children.all %}
                 <div class="column is-3">
-                    <button class="button is-primary is-hovered"><a href="{% url 'category_detail' subcategory.slug %}">{{ subcategory.title }}</a></button>
+                    <button class="button is-warning is-outlined is-hovered"><a href="{% url 'category_detail' subcategory.slug %}">{{ subcategory.title }}</a></button>
                 </div>
             {% endfor %}
         </div>
