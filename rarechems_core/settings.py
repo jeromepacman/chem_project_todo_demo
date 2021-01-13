@@ -27,7 +27,7 @@ LOGOUT_REDIRECT_URL='frontpage'
 
 # Cart
 
-SESSION_COOKIE_AGE=86400
+SESSION_COOKIE_AGE=1800
 CART_SESSION_ID='cart'
 
 # Application definition
@@ -143,6 +143,8 @@ MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media/')
 
 STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# API test keys
 
 STRIPE_API_KEY_PUBLISHABLE="pk_test_51HIHiuKBJV2qfWbD2gQe6aqanfw6Eyul5P02KeOuSR1UMuaV4TxEtaQyzr9DbLITSZweL7XjK3p74swcGYrE2qEX00Hz7GmhMI"
 STRIPE_API_KEY_HIDDEN="sk_test_51HIHiuKBJV2qfWbD4I9pAODack7r7r9LJOY65zSFx7jUUwgy2nfKEgQGvorv1p2xP7tgMsJ5N9EW7K1lBdPnFnyK00kdrS27cj"
